@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  home_item_name: MyString
+  home_item_number: 1
+  home_item_request: MyString
+
+two:
+  home_item_name: MyString
+  home_item_number: 1
+  home_item_request: MyString

@@ -1,0 +1,24 @@
+	<% if current_user.follows?(@user) %> 
+	$('.follow-btn').removeClass("unfollow");
+	$('.follow-btn').addClass("follow");
+	<% else %>	
+	$('.follow-btn').removeClass("follow");
+	$('.follow-btn').addClass("unfollow");
+	<% end %>
+
+	<% if current_user.follows?(@user) %> 
+	$('.following-btn').removeClass("unfollow");
+	$('.following-btn').addClass("follow");
+	<% else %>	
+	$('.following-btn').removeClass("follow");
+	$('.following-btn').addClass("unfollow");
+	<% end %>
+
+
+	<% if current_user.follows?(@user) %> 
+	$('.test').removeClass("about-u-select-hide");
+	$('.test').addClass("about-u-select-show");
+	<% else %>	
+	$('.test').removeClass("about-u-select-show");
+	$('.test').addClass("about-u-select-hide");
+	<% end %>

@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Items</h1>
+
+
+<table>
+  <tbody>
+    <% @items.each do |item| %>
+      <tr>
+        <td><%= item.item_name %></td>
+
+        <td><%= item.item_active_number %> / <%= item.item_number %></td>
+
+
+        <% if current_user.account_type == "先生" || current_user.account_type == "助手"%>
+            <td><%= link_to '表示', item %></td>
+            <td><%= link_to '編集', edit_item_path(item) %></td>
+            <td><%= link_to '削除', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+        <% if current_user.account_type == "先生" || current_user.account_type == "助手"%>
+            <%= link_to 'New Item', new_item_path %>
+        <% end %>

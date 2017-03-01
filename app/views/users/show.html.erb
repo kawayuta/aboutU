@@ -1,0 +1,104 @@
+<p id="notice"><%= notice %></p>
+<%= @user.nickname%>さんのプロフィールページ
+
+ <% if @userid == @user %>
+ <% elsif %>
+
+                        <% if @userid.follows?(@user) %>
+
+	                        <%= link_to follow_user_path, class:"following-btn",  :method => :put, remote: :true do %><span></span>
+	                         <% end %>
+
+			<div class="test about-u-select-show">
+				<% @user_id = params[:id] %>
+				<% @my_id = current_user.id%>
+			          	<% if About.find_by(["my_id = ? and user_id = ? and about_id = ?", @my_id, @user.id, 1])%>
+			             	<%= link_to poll_first_home_path(@user), method: :put do %>
+			             	<li class="poll_1_checked">好きな人_true</li>
+			             	<% end %>
+			          	<% else %>
+			             	<%= link_to poll_first_home_path(@user), method: :put do %>
+			             	<li class="poll_1">好きな人</li>
+			              	<% end %>
+			          	<% end %>
+				<% if About.find_by(["my_id = ? and user_id = ? and about_id = ?", @my_id, @user.id, 2])%>
+			              	<%= link_to poll_second_home_path(@user), method: :put do %>
+			              	<li class="poll_2_checked">親友_true</li>
+			              	<% end %>
+			          	<% else %>
+			            	<%= link_to poll_second_home_path(@user), method: :put do %>
+			            	<li class="poll_2">親友</li>
+			            	<% end %>
+			          	<% end %>
+				<% if About.find_by(["my_id = ? and user_id = ? and about_id = ?", @my_id, @user.id, 3])%>
+			              	<%= link_to poll_third_home_path(@user), method: :put do %>
+			              	<li class="poll_3_checked">ただの友達_true</li>
+			              	<% end %>
+			          	<% else %>
+				             <%= link_to poll_third_home_path(@user), method: :put do %>
+				             <li class="poll_3">ただの友達</li>
+				             <% end %>
+			          	<% end %>
+			  	<% if About.find_by(["my_id = ? and user_id = ? and about_id = ?", @my_id, @user.id, 4])%>
+				              <%= link_to poll_four_home_path(@user), method: :put do %>
+				              <li class="poll_4_checked">知り合い_true</li>
+				              <% end %>
+			         	 <% else %>
+				              <%= link_to poll_four_home_path(@user), method: :put do %>
+				              <li class="poll_4">知り合い</li>
+				              <% end %>
+			          	<% end %>
+ 			</div>
+
+		<% else %>
+
+			<%= link_to follow_user_path, class:"follow-btn",  :method => :put, remote: :true do %><span></span>
+			<% end %>
+
+			<div class="test about-u-select-hide">
+				<% @user_id = params[:id] %>
+				<% @my_id = current_user.id%>
+			          	<% if About.find_by(["my_id = ? and user_id = ? and about_id = ?", @my_id, @user.id, 1])%>
+			             	<%= link_to poll_first_home_path(@user), method: :put do %>
+			             	<li class="poll_1_checked">好きな人_true</li>
+			             	<% end %>
+			          	<% else %>
+			             	<%= link_to poll_first_home_path(@user), method: :put do %>
+			             	<li class="poll_1">好きな人</li>
+			              	<% end %>
+			          	<% end %>
+				<% if About.find_by(["my_id = ? and user_id = ? and about_id = ?", @my_id, @user.id, 2])%>
+			              	<%= link_to poll_second_home_path(@user), method: :put do %>
+			              	<li class="poll_2_checked">親友_true</li>
+			              	<% end %>
+			          	<% else %>
+			            	<%= link_to poll_second_home_path(@user), method: :put do %>
+			            	<li class="poll_2">親友</li>
+			            	<% end %>
+			          	<% end %>
+				<% if About.find_by(["my_id = ? and user_id = ? and about_id = ?", @my_id, @user.id, 3])%>
+			              	<%= link_to poll_third_home_path(@user), method: :put do %>
+			              	<li class="poll_3_checked">ただの友達_true</li>
+			              	<% end %>
+			          	<% else %>
+				             <%= link_to poll_third_home_path(@user), method: :put do %>
+				             <li class="poll_3">ただの友達</li>
+				             <% end %>
+			          	<% end %>
+			  	<% if About.find_by(["my_id = ? and user_id = ? and about_id = ?", @my_id, @user.id, 4])%>
+				              <%= link_to poll_four_home_path(@user), method: :put do %>
+				              <li class="poll_4_checked">知り合い_true</li>
+				              <% end %>
+			         	 <% else %>
+				              <%= link_to poll_four_home_path(@user), method: :put do %>
+				              <li class="poll_4">知り合い</li>
+				              <% end %>
+			          	<% end %>
+ 			</div>
+
+                     	<% end %>
+
+<% end %>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
