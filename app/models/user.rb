@@ -13,6 +13,7 @@ def self.find_for_oauth(auth)
     unless user
       user = User.create(
         username:     auth.info.nickname,
+        avatar:     auth.info.image,
         uid:      auth.uid,
         provider: auth.provider,
         token: auth.credentials.token,

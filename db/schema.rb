@@ -35,8 +35,9 @@ ActiveRecord::Schema.define(version: 20170303182606) do
     t.string   "my_user_id"
     t.string   "friend_name"
     t.string   "friend_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "friend_avatar"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "homes", force: :cascade do |t|
@@ -112,6 +113,7 @@ ActiveRecord::Schema.define(version: 20170303182606) do
     t.string   "uid"
     t.string   "token"
     t.string   "secret"
+    t.string   "avatar"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

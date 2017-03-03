@@ -1,6 +1,7 @@
 
 <p id="notice"><%= notice %></p>
 <% if user_signed_in? %>
+<%= image_tag current_user.avatar%>
                 <strong><%= link_to current_user.username, user_path(current_user) %></strong>
                 <%= link_to 'プロフィール変更', edit_user_registration_path %>
                 <%= link_to '情報登録', items_path %>
@@ -28,6 +29,7 @@
   <% @banana.my_user_id = current_user.id %>
   <% @banana.friend_name = follower.screen_name %>
   <% @banana.friend_id = follower.id %>
+  <% @banana.friend_avatar = follower.profile_image_url %>
   <% @banana.save%>
 
 <% end %>
@@ -50,7 +52,7 @@
     <% else %>
 
  <% end %>
-
+<%= image_tag boting.avatar%>
 <%= link_to boting.username, boting%>
  <% if About.find_by(["my_id = ? and user_id = ? and about_id = ?", current_user.id, boting.id, 1])%>
           好きな人
