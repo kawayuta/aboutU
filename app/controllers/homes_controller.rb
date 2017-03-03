@@ -4,9 +4,10 @@ require "date"
 
   # GET /homes
   # GET /homes.json
+
+
   def index
     @homes = Home.all
-
     @users = User.all
     @sign_in_check = user_signed_in?
     
@@ -14,6 +15,11 @@ require "date"
         @following_user = current_user.followees(@users)
         @follower_user = current_user.followers(@users)
     end
+
+    @myfiend = Friend.where(:my_user_id => current_user.id)
+    @myfriend_pluck = @myfiend.pluck(:friend_name)
+    @myfiend_user = User.where(:username => @myfriend_pluck)
+ 
 
   end
 

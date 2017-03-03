@@ -1,11 +1,17 @@
 Rails.application.routes.draw do
   resources :homes
   resources :items
-  devise_for :users
+
+devise_for :users, :controllers => {
+
+  :omniauth_callbacks => 'users/omniauth_callbacks',
+  :sessions => 'users/sessions',
+  :registrations => 'users/registrations'
+}
   resources :users
   root 'homes#index'
 
-  resources :users do 
+  resources :users do
     member do
       put 'follow'    => 'users#follow'
       put 'unfollow'    => 'users#unfollow'
