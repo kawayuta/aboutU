@@ -1,20 +1,24 @@
+<% lovedatada = [] %>
+
 <% @myfiend_user.each do |boting|%>
   <% About.where(["my_id = ? and user_id = ? and about_id = ?", current_user.id, boting.id, 1]).each do |s| %>
     <%if @lo = About.find_by(["my_id = ? and user_id = ? and about_id = ?", s.user_id, current_user.id, 1]) %>
-
-    <div class="love_data">
-      <div class="love_data_ava">
-        <%= image_tag User.find_by(id: @lo.my_id).avatar %>
-     </div>
-     <!--  <div class="love_data_ava_name">
-      <%= User.find_by(id: @lo.my_id).username %>
+        <% lovedatada.push(User.find_by(id: @lo.my_id)) %>
+        <% end %>
+    <% end %>
+    <% end %>
+    <% unless lovedatada == [] %>
+  <div class="love_data">
+   <% lovedatada.each do |te|%>
+    <div class="love_data_ava">
+    <%= link_to te do %>
+    <%= image_tag te.avatar %>
+    <% end %>
     </div>
-      と両思いになりました。 -->
+   <% end %>
    </div>
+   <% end %>
 
-    <% end %>
-    <% end %>
-<% end %>
 <% if @myfiend == [] %>
 <%
     require "twitter" 

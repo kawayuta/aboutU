@@ -8,11 +8,11 @@ class AboutsController < ApplicationController
 		 if @test = About.find_by(["my_id = ? and user_id = ?", @my_id, @user_id])
 		 	@test.about_id = 1
 		 	@test.save
-			redirect_to root_path
+			redirect_to :back
 	      		puts "update"
 	      	 else
 		 	poll = About.create(my_id: @my_id, user_id: @user_id, about_id: 1)
-			redirect_to root_path
+			redirect_to :back
 	       		 puts "create"
 	     	 end
 
@@ -27,11 +27,11 @@ class AboutsController < ApplicationController
 		 if @test = About.find_by(["my_id = ? and user_id = ?", @my_id, @user_id])
 		 	@test.about_id = 2
 		 	@test.save
-			redirect_to root_path
+			redirect_to :back
 	      		puts "update"
 	      	 else
 		 	poll = About.create(my_id: @my_id, user_id: @user_id, about_id: 2)
-			redirect_to root_path
+			redirect_to :back
 	       		 puts "create"
 	     	 end
 
@@ -45,11 +45,11 @@ class AboutsController < ApplicationController
 		 if @test = About.find_by(["my_id = ? and user_id = ?", @my_id, @user_id])
 		 	@test.about_id = 3
 		 	@test.save
-			redirect_to root_path
+			redirect_to :back
 	      		puts "update"
 	      	 else
 		 	poll = About.create(my_id: @my_id, user_id: @user_id, about_id: 3)
-			redirect_to root_path
+			redirect_to :back
 	       		 puts "create"
 	     	 end
 
@@ -63,11 +63,11 @@ class AboutsController < ApplicationController
 		 if @test = About.find_by(["my_id = ? and user_id = ?", @my_id, @user_id])
 		 	@test.about_id = 4
 		 	@test.save
-			redirect_to root_path
+			redirect_to :back
 	      		puts "update"
 	      	 else
 		 	poll = About.create(my_id: @my_id, user_id: @user_id, about_id: 4)
-			redirect_to root_path
+			redirect_to :back
 	       		 puts "create"
 	     	 end
 	 

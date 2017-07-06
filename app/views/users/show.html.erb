@@ -6,6 +6,8 @@
 <div class="fri_user_page_username">
 <%= @user.username%>
 </div>
+
+
 </div>
 
  <% if @userid == @user %>
@@ -21,7 +23,7 @@
 				<% @my_id = current_user.id%>
 			          	<% if About.find_by(["my_id = ? and user_id = ? and about_id = ?", @my_id, @user.id, 1])%>
 			             	<%= link_to poll_first_home_path(@user), method: :put do %>
-			             	<li class="poll_1_checked">好きな人_true</li>
+			             	<li class="poll_1_checked">好きな人</li>
 			             	<% end %>
 			          	<% else %>
 			             	<%= link_to poll_first_home_path(@user), method: :put do %>
@@ -30,7 +32,7 @@
 			          	<% end %>
 				<% if About.find_by(["my_id = ? and user_id = ? and about_id = ?", @my_id, @user.id, 2])%>
 			              	<%= link_to poll_second_home_path(@user), method: :put do %>
-			              	<li class="poll_2_checked">親友_true</li>
+			              	<li class="poll_2_checked">親友</li>
 			              	<% end %>
 			          	<% else %>
 			            	<%= link_to poll_second_home_path(@user), method: :put do %>
@@ -39,16 +41,16 @@
 			          	<% end %>
 				<% if About.find_by(["my_id = ? and user_id = ? and about_id = ?", @my_id, @user.id, 3])%>
 			              	<%= link_to poll_third_home_path(@user), method: :put do %>
-			              	<li class="poll_3_checked">ただの友達_true</li>
+			              	<li class="poll_3_checked">友達</li>
 			              	<% end %>
 			          	<% else %>
 				             <%= link_to poll_third_home_path(@user), method: :put do %>
-				             <li class="poll_3">ただの友達</li>
+				             <li class="poll_3">友達</li>
 				             <% end %>
 			          	<% end %>
 			  	<% if About.find_by(["my_id = ? and user_id = ? and about_id = ?", @my_id, @user.id, 4])%>
 				              <%= link_to poll_four_home_path(@user), method: :put do %>
-				              <li class="poll_4_checked">知り合い_true</li>
+				              <li class="poll_4_checked">知り合い</li>
 				              <% end %>
 			         	 <% else %>
 				              <%= link_to poll_four_home_path(@user), method: :put do %>
