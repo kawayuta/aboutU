@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 20170303182606) do
   create_table "abouts", force: :cascade do |t|
     t.integer  "my_id"
     t.integer  "user_id"
-    t.integer  "about_id"
+    t.integer  "about_id",   default: 0
     t.boolean  "poll_check", default: true, null: false
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
@@ -34,6 +34,8 @@ ActiveRecord::Schema.define(version: 20170303182606) do
   create_table "friends", force: :cascade do |t|
     t.string   "my_user_id"
     t.string   "friend_name"
+    t.string   "friend_name_u"
+    t.boolean  "friend_check"
     t.string   "friend_id"
     t.string   "friend_avatar"
     t.datetime "created_at",    null: false

@@ -4,7 +4,7 @@ class CreateAbouts < ActiveRecord::Migration[5.0]
 
 		t.integer :my_id
 		t.integer :user_id
-		t.integer :about_id
+		t.integer :about_id, :default =>0
 		t.boolean :poll_check, :default => 3, :null => false
       t.timestamps
     end
