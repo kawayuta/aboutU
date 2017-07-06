@@ -1,5 +1,12 @@
-<p id="notice"><%= notice %></p>
-<%= @user.username%>さんのプロフィールページ
+<div class="fri_user_page">
+
+<div class="fri_user_page_image">
+	<%= image_tag @user.avatar %>
+</div>
+
+<%= @user.username%>
+
+</div>
 
  <% if @userid == @user %>
  <% elsif %>
@@ -99,6 +106,3 @@
                      	<% end %>
 
 <% end %>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>

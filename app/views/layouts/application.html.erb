@@ -3,12 +3,33 @@
   <head>
     <title>Vdapp</title>
     <%= csrf_meta_tags %>
-
+<meta name="viewport" content="width=device-width,initial-scale=1">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+  	<header>
+<% if user_signed_in? %>
+                <div class="profile_image">
+                  <%= link_to edit_user_registration_path do %>
+                  <% image_tag current_user.avatar %>
+                    <% end %>
+                </div>
+
+               <div class="head_menu">
+                <%= link_to 'プロフィール変更', edit_user_registration_path %>
+                <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+              </div>
+
+<% else %>
+               <div class="head_menu">
+                <%= link_to 'サインアップ', new_user_registration_path %>
+                <%= link_to 'ログイン', new_user_session_path %>
+              </div>
+<% end %>
+</header>
+
     <%= yield %>
   </body>
 </html>
