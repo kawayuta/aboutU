@@ -5,7 +5,6 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
-    
   end
 
   # GET /users/1
@@ -65,17 +64,20 @@ class UsersController < ApplicationController
   end
 
   def follow
-@userid = current_user
-
+    @userid = current_user
     @follow_status = {'status' => true}
     @user = User.find(params[:id])
     puts @userid.follows?(@user)
     if @userid.follows?(@user)
     current_user.unfollow!(@user)
-    else
-    current_user.follow!(@user)       
+    unless About.find_by(["my_id = ? and user_id = ?", current_user, @user]).blank?
+    About.find_by(["my_id = ? and user_id = ?", current_user, @user]).delete
     end
-    
+
+    else
+    current_user.follow!(@user)
+    end
+
   end
 
 

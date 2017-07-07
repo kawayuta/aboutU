@@ -19,8 +19,8 @@
                 </div>
 
                <div class="head_menu">
-                <%= link_to 'プロフィール変更', edit_user_registration_path %>
-                <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+                <%= link_to 'プロフィール変更', edit_user_registration_path, :class => "profile_edit" %>
+                <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, :class => "profile_logout" %>
               </div>
 </header>
 
