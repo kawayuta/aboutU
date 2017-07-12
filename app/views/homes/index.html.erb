@@ -50,7 +50,7 @@
 <% else %>
 
 <ul class="friend_list">
-<% Friend.where(my_user_id: current_user.id).order(friend_check: :desc).each do |te|%>
+<% Friend.where(my_user_id: current_user.id).order(friend_check: :asc).each do |te|%>
 <li>
 <div class="profile_image_friend"><%= image_tag te.friend_avatar%></div>
 <div class="profile_name"><%= te.friend_name_u %></div>
