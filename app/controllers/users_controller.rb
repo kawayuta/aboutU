@@ -69,10 +69,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     puts @userid.follows?(@user)
     if @userid.follows?(@user)
-    current_user.unfollow!(@user)
     unless About.find_by(["my_id = ? and user_id = ?", current_user, @user]).blank?
     About.find_by(["my_id = ? and user_id = ?", current_user, @user]).delete
     end
+    current_user.unfollow!(@user)
 
     else
     current_user.follow!(@user)

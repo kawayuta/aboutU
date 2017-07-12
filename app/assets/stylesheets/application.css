@@ -28,21 +28,23 @@ border-bottom:1px solid #EEE;
 
 
 .lovemessage_box {
-width:100%;
 height:auto;
 padding-bottom: 10px;
 margin-bottom: 20px;
 border-bottom:1px solid #EEE;
 background-color:#F0D6DE;
 position: relative;
-top:-72px;
+margin-left: 20px;
+margin-right: 20px;
+border-radius: 5px;
 }
 
 .lovemessage_box h3 {
 	padding-top: 10px;
 	padding-bottom: 20px;
-	padding-left: 10px;
-color:#EE4256;
+	padding-left: 15px;
+	text-shadow: 1px 1px 3px #EE4256;
+color:#FFF;
 }
 
 .lovemessage_box p {
@@ -62,7 +64,6 @@ color:#EE4256;
 }
 
 .profile_logout { 
-
 	padding-top: 10px;
 	padding-bottom: 10px;
 	padding-left: 15px;
@@ -90,6 +91,7 @@ top:-30px;
 	padding-bottom: 10px;
 	list-style: none;
 	border-radius: 5px;
+	margin-bottom: 10px;
 	margin-left: 20px;
 	margin-right: 20px;
 	font-size:20px;
@@ -97,6 +99,7 @@ top:-30px;
 
 .poll_1 {
 	color:#333;
+	border:1px solid #EEE;
 }
 
 .poll_1_checked {
@@ -107,6 +110,7 @@ top:-30px;
 }
 
 .poll_2 {
+	border:1px solid #EEE;
 	color:#333;
 	
 }
@@ -118,6 +122,7 @@ top:-30px;
 }
 
 .poll_3 {
+	border:1px solid #EEE;
 	color:#333;
 	
 }
@@ -129,6 +134,7 @@ top:-30px;
 }
 
 .poll_4 {
+	border:1px solid #EEE;
 	color:#333;
 	
 }

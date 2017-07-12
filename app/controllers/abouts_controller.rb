@@ -6,7 +6,7 @@ class AboutsController < ApplicationController
 	@my_id = current_user.id
 
 					if @test = About.find_by(["my_id = ? and user_id = ?", @my_id, @user_id])
-						if About.find_by(my_id: @my_id, about_id: 1)
+						unless About.find_by(my_id: @my_id, about_id: 1).blank?
 							About.find_by(my_id: @my_id, about_id: 1).delete
 						end
 					 	@test.about_id = 1
@@ -14,6 +14,11 @@ class AboutsController < ApplicationController
 						redirect_to :back
 	      		puts "update"
 	      	else
+
+					 	unless About.find_by(my_id: @my_id, about_id: 1).blank?
+							About.find_by(my_id: @my_id, about_id: 1).delete
+						end
+						
 					 	poll = About.create(my_id: @my_id, user_id: @user_id, about_id: 1)
 						redirect_to :back
 				    puts "create"
