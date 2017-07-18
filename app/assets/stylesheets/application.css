@@ -72,6 +72,10 @@ display: block;
 	border-bottom: 1px solid #EEE;
 }
 
+.lov input {
+	width:90%;
+	height:100px;
+}
 .twi_button {
 	width:290px;
 	height:70px;
@@ -126,6 +130,7 @@ color:#FFF;
 }
 
 .lovemessage_box p {
+
 	text-align: center;
 	padding-top: 10px;
 	padding-bottom: 40px;
@@ -135,7 +140,7 @@ color:#FFF;
 	padding-bottom: 10px;
 	padding-left: 15px;
 	padding-right: 15px;
-	background-color:  #EEE;
+	background-color:  #ccc;
 	color: #FFF;
 	border-radius: 4px;
 	margin-right:10px;
@@ -146,7 +151,7 @@ color:#FFF;
 	padding-bottom: 10px;
 	padding-left: 15px;
 	padding-right: 15px;
-	background-color:  #EEE;
+	background-color:  #ccc;
 	color: #FFF;
 	border-radius: 4px;
 
