@@ -6,6 +6,7 @@ devise :database_authenticatable, :omniauthable, :recoverable, :registerable, :r
 
 acts_as_follower
 acts_as_followable
+mount_uploader :line, ImagesUploader
 
 def self.find_for_oauth(auth)
     user = User.where(uid: auth.uid, provider: auth.provider).first

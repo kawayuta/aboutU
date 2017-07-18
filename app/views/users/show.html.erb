@@ -27,12 +27,21 @@
       <% end %>
     <% end %>
     <% unless lovedatada == [] %>
-    <div class="lovemessage_box">
 			<% lovedatada.first(1).each do |dd| %>
+			<p class="alert">両思いになりました。</p>
+    <div class="lovemessage_box">
 			<h3>LOVE LETTER</h3>
 			<p><%= dd.lovemessage %></p>
-    	<% end %>
     </div>
+    <div class="line_box">
+    	<h3>LINE</h3>
+<center>
+			<%= image_tag dd.line %>
+</center>
+	</div>
+    	<% end %>
+
+
     <% end %>
     
 				<% @user_id = params[:id] %>
@@ -48,29 +57,29 @@
 			          	<% end %>
 				<% if About.find_by(["my_id = ? and user_id = ? and about_id = ?", @my_id, @user.id, 2])%>
 			              	<%= link_to poll_second_home_path(@user), method: :put do %>
-			              	<li class="poll_2_checked">親友</li>
+			              	<li class="poll_2_checked">友達</li>
 			              	<% end %>
 			          	<% else %>
 			            	<%= link_to poll_second_home_path(@user), method: :put do %>
-			            	<li class="poll_2">親友</li>
+			            	<li class="poll_2">友達</li>
 			            	<% end %>
 			          	<% end %>
 				<% if About.find_by(["my_id = ? and user_id = ? and about_id = ?", @my_id, @user.id, 3])%>
 			              	<%= link_to poll_third_home_path(@user), method: :put do %>
-			              	<li class="poll_3_checked">友達</li>
+			              	<li class="poll_3_checked">知り合い</li>
 			              	<% end %>
 			          	<% else %>
 				             <%= link_to poll_third_home_path(@user), method: :put do %>
-				             <li class="poll_3">友達</li>
+				             <li class="poll_3">知り合い</li>
 				             <% end %>
 			          	<% end %>
 			  	<% if About.find_by(["my_id = ? and user_id = ? and about_id = ?", @my_id, @user.id, 4])%>
 				              <%= link_to poll_four_home_path(@user), method: :put do %>
-				              <li class="poll_4_checked">知り合い</li>
+				              <li class="poll_4_checked">家族</li>
 				              <% end %>
 			         	 <% else %>
 				              <%= link_to poll_four_home_path(@user), method: :put do %>
-				              <li class="poll_4">知り合い</li>
+				              <li class="poll_4">家族</li>
 				              <% end %>
 			          	<% end %>
  			</div>

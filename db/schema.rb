@@ -16,9 +16,9 @@ ActiveRecord::Schema.define(version: 20170303182606) do
     t.integer  "my_id"
     t.integer  "user_id"
     t.integer  "about_id",   default: 0
-    t.boolean  "poll_check", default: true, null: false
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.boolean  "poll_check", default: false, null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "follows", force: :cascade do |t|
@@ -97,6 +97,7 @@ ActiveRecord::Schema.define(version: 20170303182606) do
 
   create_table "users", force: :cascade do |t|
     t.text     "lovemessage"
+    t.string   "line"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.integer  "followees_count",        default: 0

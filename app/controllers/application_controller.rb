@@ -9,7 +9,7 @@ before_action do
 
     def configure_permitted_parameters
           devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :username, :email, :password, :token, :secret])
-          devise_parameter_sanitizer.permit(:account_update, keys: [:lovemessage, :nickname, :username, :email, :password, :token, :secret])
+          devise_parameter_sanitizer.permit(:account_update, keys: [:line,:lovemessage, :nickname, :username, :email, :password, :token, :secret])
     end
 
 private
